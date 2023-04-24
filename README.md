@@ -1,12 +1,3 @@
-# Create the React project using 'create-react-app' command:
-# Install the 'axios' package, which we will use to make API calls to the TOM API:
-
-```
-npm install axios
-```
-
-
-
 
 
 # Screenshot for the UI
@@ -15,6 +6,45 @@ npm install axios
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Create the React project using 'create-react-app' command:
+```
+npx create-react-app my-app
+cd my-app
+```
+## Install the 'axios' package, which we will use to make API calls to the TOM API:
+
+```
+npm install axios
+```
+
+## Create a new file called 'DrinkChoiceForm.js' in the 'src' folder
+
+- drinkchoice.js file  contain code to interact with the API and perform operations related to the Drink Choice model. This includes retrieving data from the API, sending data to the API to make predictions or perform other operations, and handling responses from the API.
+- Also it contain code to define or implement specific features or functionality related to the Drink Choice model within the React application, such as handling user input, displaying output, or managing state. Ultimately, the specific implementation of drinkchoice.js would depend on the specific requirements and design of the application.
+
+## Render and import the 'DrinkChoiceForm.js' component in the 'App.js' file. 
+When you run the application (npm start), it will fetch metadata from the TOM API and display the model name and input variables in a form. When the form is submitted, it will query the model and display the decision on the screen (in this example, it just logs the decision to the console). I replace the TOM API URLs with my own API endpoints.
+
+## Enhnacing the Web Application 
+- Adding functionality to store data gathered from the TOM API: To store data gathered from the TOM API, I used a state management library like Redux or React Context. I created a  global state to store the fetched metadata and decision results, and update it whenever a new API call is made. This would allow us to easily access the data throughout the application, and persist it between page refreshes.
+- Security consideration: When making API calls from a web application, it's important to consider security. Here are a few security measures  to implement:
+- - Use HTTPS: Use HTTPS to encrypt all data transmitted between the client and server, and ensure that all API endpoints are only accessible via HTTPS.
+- - Implement authentication: Require users to authenticate before making API calls, using techniques like cookies, tokens or session IDs.
+- - Implement rate limiting: Limit the number of API requests that can be made by a single user, to prevent abuse or DoS attacks.
+- - Sanitize input: Validate and sanitize all input received from users, to prevent XSS attacks and SQL injection.
+
+- Adding batch functionality of the TOM API: 
+
+
+
+
+
+
+
+
+
+
 
 ## Available Scripts
 
