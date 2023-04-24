@@ -1,5 +1,5 @@
 
-
+# Screenshot for the UI
 
 ![React App](https://imgur.com/6TN1mq4.jpg)
 # Getting Started with Create React App
