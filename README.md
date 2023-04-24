@@ -1,3 +1,13 @@
+# Create the React project using 'create-react-app' command:
+# Install the 'axios' package, which we will use to make API calls to the TOM API:
+
+```
+npm install axios
+```
+
+
+
+
 
 # Screenshot for the UI
 
