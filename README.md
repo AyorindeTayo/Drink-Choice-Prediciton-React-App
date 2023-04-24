@@ -36,14 +36,7 @@ When you run the application (npm start), it will fetch metadata from the TOM AP
 
 - Adding batch functionality of the TOM API: 
 
-
-
-
-
-
-
-
-
+To add the batch functionality of the TOM API, i modify the DrinkChoiceForm component to allow the user to input multiple sets of input variables at once. When the form is submitted, the component would send a batch request to the API, containing all of the input sets, and receive a batch response containing all of the decisions. You could then display in a table or list format.
 
 
 ## Available Scripts
