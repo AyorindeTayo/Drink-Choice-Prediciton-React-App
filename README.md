@@ -17,7 +17,7 @@ cd my-app
 ```
 npm install axios
 ```
-## Install this packages 
+## Install these packages 
 ```
 npm cache clean --force
 npm rebuild
