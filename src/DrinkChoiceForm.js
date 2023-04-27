@@ -3,11 +3,11 @@ import axios from 'axios';
 
 const apiKey = process.env.REACT_APP_TOM_API_KEY;
 
-
 function DrinkChoiceForm() {
   const [result, setResult] = useState(null);
   const [temperature, setTemperature] = useState('');
   const [price, setPrice] = useState('');
+  const [history, setHistory] = useState([]);
 
   function handleFormSubmit(event) {
     event.preventDefault();
@@ -16,12 +16,18 @@ function DrinkChoiceForm() {
       temperature: parseInt(temperature),
       price: parseFloat(price)
     });
-
-    axios.post(`https://api.up2tom.com/v3/models/drink-choice?apiKey=${apiKey}`, { input })
-      .then(response => setResult(response.data.decision))
+ 
+    axios.post(`https://api.up2tom.com/v3/models/drink-choice?apiKey`, { input }, {
+      headers: {
+        Authorization: `Token ${apiKey}`
+        }
+      })
+      .then(response => {
+        const decision = response.data.decision;
+        setResult(decision);
+        setHistory([...history, { input, decision }]);
+      })
       .catch(error => console.error(error));
-
-      
   }
 
   return (
@@ -39,6 +45,13 @@ function DrinkChoiceForm() {
         <button type="submit">Predict</button>
       </form>
       {result && <p>The predicted drink choice is: {result}</p>}
+      <h2>History</h2>
+      {history.map((entry, index) => (
+        <div key={index}>
+          <p><strong>Input:</strong> {entry.input}</p>
+          <p><strong>Decision:</strong> {entry.decision}</p>
+        </div>
+      ))}
     </div>
   );
 }
