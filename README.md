@@ -17,7 +17,12 @@ cd my-app
 ```
 npm install axios
 ```
-
+## Install this packages 
+```
+npm cache clean --force
+npm rebuild
+npm install
+```
 ## Create a new file called 'DrinkChoiceForm.js' in the 'src' folder
 
 - drinkchoice.js file  contain code to interact with the API and perform operations related to the Drink Choice model. This includes retrieving data from the API, sending data to the API to make predictions or perform other operations, and handling responses from the API.
