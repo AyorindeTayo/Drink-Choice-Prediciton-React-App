@@ -1,24 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DrinkChoiceForm from './DrinkChoiceForm';
 
-const apiKey = process.env.REACT_APP_TOM_API_KEY;
-const input = JSON.stringify({
-  temperature: 75,
-  price: 5.99
-});
-
 function App() {
+  const [drinkChoices, setDrinkChoices] = useState([]);
 
-  fetch(`https://api.up2tom.com/v3/models/drink-choice?apiKey=${apiKey}&input=${input}`)
-  .then(response => response.json())
-  .then(data => console.log(data));
+  function handleSaveResult(result, input) {
+    const newDrinkChoice = {
+      result,
+      input,
+      timestamp: new Date().toISOString()
+    };
+    setDrinkChoices([...drinkChoices, newDrinkChoice]);
+    localStorage.setItem('drinkChoices', JSON.stringify([...drinkChoices, newDrinkChoice]));
+  }
 
   return (
-    <div className="App">
-      <DrinkChoiceForm />
+    <div>
+      <DrinkChoiceForm onSaveResult={handleSaveResult} />
+      <h2>Recent Drink Choices:</h2>
+      <ul>
+        {drinkChoices.map((drinkChoice, index) => (
+          <li key={index}>
+            <div>Result: {drinkChoice.result}</div>
+            <div>Input: {JSON.stringify(drinkChoice.input)}</div>
+            <div>Timestamp: {drinkChoice.timestamp}</div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
-
 
 export default App;
